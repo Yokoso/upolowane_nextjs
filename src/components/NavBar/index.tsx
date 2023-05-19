@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Logo } from '../Logo';
+import { Link } from 'react-scroll';
 
 const NavBarContainer = styled.div`
   ${tw`flex items-center self-center h-20 pt-4 pl-6 pr-6 border-b-2 border-gray-200 border-opacity-50 `};
@@ -38,12 +39,22 @@ const NavBarItem = tw.li`
 `;
 
 export function NavBar() {
+  const navBarItems = <NavBarItems>
+    <NavBarItem>
+      <Link to="Home">Home</Link>
+    </NavBarItem>
+    <NavBarItem>
+      <Link to="About">About</Link>
+    </NavBarItem>
+    <NavBarItem>
+      <Link to="Contact">Contact</Link>
+    </NavBarItem>
+  </NavBarItems>
+
   return (
     <NavBarContainer>
       <Logo />
-      <NavBarItems>
-        <NavBarItem />
-      </NavBarItems>
+      
     </NavBarContainer>
   )
 }
