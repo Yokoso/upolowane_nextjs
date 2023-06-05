@@ -16,10 +16,10 @@ export default class MyDocument extends Document {
       return {
         ...initialProps,
         styles: [
-          <React.Fragment>
+          <>
             {initialProps.styles}
             {sheet.getStyleElement()}
-          </React.Fragment>,
+          </>,
         ],
       }
     } finally {
