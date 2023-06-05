@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import tw from 'twin.macro';
 import { Logo } from '../Logo';
 import { Link } from 'react-scroll';
+import { deviceSize } from '../responsive';
+import { useMediaQuery } from 'react-responsive';
+import { slide as Menu } from 'react-burger-menu';
 
 const NavBarContainer = styled.div`
   ${tw`flex items-center self-center h-20 pt-4 pl-6 pr-6 border-b-2 border-gray-200 border-opacity-50 `};
@@ -39,6 +42,8 @@ const NavBarItem = tw.li`
 `;
 
 export function NavBar() {
+  const isMobile = useMediaQuery({ maxWidth: deviceSize.mobile });
+
   const navBarItems = <NavBarItems>
     <NavBarItem>
       <Link to="Home">Home</Link>
@@ -54,7 +59,8 @@ export function NavBar() {
   return (
     <NavBarContainer>
       <Logo />
-      
+      {isMobile && <Menu right >{ navBarItems }</Menu>}
+      {!isMobile && navBarItems}
     </NavBarContainer>
   )
 }
