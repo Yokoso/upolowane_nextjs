@@ -1,3 +1,4 @@
+import { NavBar } from '@/components/NavBar';
 import React from 'react';
 import styled from 'styled-components';
 import tw from 'twin.macro';
@@ -8,6 +9,7 @@ const TopSectionContainer = styled.div`
 
 export function TopSection() {
   return <TopSectionContainer>
+    <NavBar />
     <h1>Top Section</h1>
   </TopSectionContainer>
 };
